@@ -56,7 +56,9 @@ pwsh -NoProfile -File ./sistema/scripts/local-postgres.ps1 -Action Prepare
 pwsh -NoProfile -File ./sistema/scripts/local-postgres.ps1 -Action Serve
 ```
 
-Abra [Organização e turmas](http://127.0.0.1:8001/estrutura). O auxiliar mantém banco, credenciais e dados fora do projeto/OneDrive, separa demonstração e testes e preserva o `.env` existente. Os cadastros pedagógicos ficam em rascunho. A tela é uma entrada temporária de desenvolvimento; a administração com usuários e permissões virá nas T07/T08.
+Abra [Organização](http://127.0.0.1:8001/estrutura). Núcleos, [Turmas](http://127.0.0.1:8001/estrutura/turmas), Ofertas e Currículo têm telas próprias. [Novo cadastro](http://127.0.0.1:8001/estrutura/novo-cadastro) abre a escolha do tipo; cada formulário possui sua própria página. Navegação, criação e cancelamento preservam o contexto da regional.
+
+O auxiliar mantém banco, credenciais e dados fora do projeto/OneDrive, separa demonstração e testes e preserva o `.env` existente. Os cadastros pedagógicos ficam em rascunho. Essas telas são uma entrada temporária de desenvolvimento; a administração com usuários e permissões virá nas T07/T08.
 
 ## Seguir a implementação
 

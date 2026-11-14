@@ -204,9 +204,9 @@ class StructureTest extends PostgresTestCase
     public function test_http_page_and_options_use_only_the_selected_region(): void
     {
         [$aurora, $horizonte] = $this->scenario();
-        $this->get('/estrutura?region='.$aurora->id.'&q=Sementes')->assertOk()->assertSee('Núcleo Jardim')->assertDontSee('Núcleo Farol')->assertHeader('Cache-Control', 'no-store, private');
-        $this->get('/estrutura?region='.$horizonte->id.'&q=Sementes')->assertOk()->assertSee('Núcleo Farol')->assertDontSee('Núcleo Jardim');
-        $this->get('/estrutura?region='.$aurora->id.'&unit='.$horizonte->localUnits()->first()->id)->assertNotFound();
+        $this->get('/estrutura/turmas?region='.$aurora->id.'&q=Sementes')->assertOk()->assertSee('Núcleo Jardim')->assertDontSee('Núcleo Farol')->assertHeader('Cache-Control', 'no-store, private');
+        $this->get('/estrutura/turmas?region='.$horizonte->id.'&q=Sementes')->assertOk()->assertSee('Núcleo Farol')->assertDontSee('Núcleo Jardim');
+        $this->get('/estrutura/turmas?region='.$aurora->id.'&unit='.$horizonte->localUnits()->first()->id)->assertNotFound();
     }
 
     public function test_http_store_persists_a_classroom_and_rejects_a_foreign_level(): void
@@ -214,10 +214,11 @@ class StructureTest extends PostgresTestCase
         [$aurora, $horizonte] = $this->scenario();
         $offering = ModuleOffering::forRegion($aurora->id)->first();
         $input = ['region_id' => $aurora->id, 'name' => 'Turma de teste', 'code' => 'HTTP-01', 'module_offering_id' => $offering->id, 'level_id' => Level::forRegion($horizonte->id)->first()->id, 'capacity' => 20];
-        $this->from('/estrutura?region='.$aurora->id)->post('/estrutura/classroom', $input)->assertRedirect()->assertSessionHasErrors('level_id');
+        $formUrl = route('structure.create', ['type' => 'classroom', 'region' => $aurora->id]);
+        $this->from($formUrl)->post('/estrutura/classroom', $input)->assertRedirect($formUrl)->assertSessionHasErrors('level_id');
         $this->assertDatabaseMissing('classrooms', ['code' => 'HTTP-01']);
         $input['level_id'] = Level::forRegion($aurora->id)->first()->id;
-        $this->post('/estrutura/classroom', $input)->assertRedirect();
+        $this->post('/estrutura/classroom', $input)->assertRedirect(route('structure.classrooms', ['region' => $aurora->id]));
         $this->assertDatabaseHas('classrooms', ['code' => 'HTTP-01', 'region_id' => $aurora->id, 'local_unit_id' => $offering->local_unit_id, 'status' => 'draft']);
         $this->post('/estrutura/classroom', $input)->assertSessionHasErrors('structure');
         $this->assertSame(1, Classroom::where('code', 'HTTP-01')->count());
@@ -227,6 +228,36 @@ class StructureTest extends PostgresTestCase
     {
         [$region] = $this->scenario();
         $this->postJson('/estrutura/classroom', ['region_id' => $region->id, 'module_offering_id' => ['bad'], 'level_id' => ['bad']])->assertUnprocessable()->assertJsonValidationErrors(['module_offering_id', 'level_id']);
+    }
+
+    public function test_browsing_pages_and_new_record_form_have_separate_content(): void
+    {
+        [$region] = $this->scenario();
+        foreach (['/estrutura', '/estrutura/nucleos', '/estrutura/turmas', '/estrutura/ofertas', '/estrutura/curriculo', '/estrutura/novo-cadastro'] as $path) {
+            $this->get($path.'?region='.$region->id)->assertOk()->assertDontSee('data-structure-form', false);
+        }
+        $this->get('/estrutura/turmas?region='.$region->id)->assertSee('data-classroom=', false)->assertDontSee('structure-levels', false);
+        $this->get('/estrutura/curriculo?region='.$region->id)->assertSee('structure-levels', false)->assertDontSee('data-classroom=', false);
+        $this->get('/estrutura/novo-cadastro/classroom?region='.$region->id)->assertOk()->assertSee('Nova turma')->assertSee('data-structure-form', false)->assertDontSee('data-classroom=', false)->assertDontSee('structure-levels', false)->assertDontSee('structure-form-tabs', false);
+    }
+
+    public function test_cancel_link_returns_to_classroom_filters_and_preserves_region_in_navigation(): void
+    {
+        [$region] = $this->scenario();
+        $unit = $region->localUnits()->first();
+        $query = ['region' => $region->id, 'unit' => $unit->id, 'q' => 'Sementes'];
+        $this->get(route('structure.create', ['type' => 'classroom', 'back' => 'classrooms'] + $query))
+            ->assertOk()
+            ->assertSee(route('structure.classrooms', $query))
+            ->assertSee(route('structure.units', ['region' => $region->id]));
+        $this->getJson(route('structure.create', ['type' => 'classroom', 'region' => $region->id, 'back' => 'https://example.com']))->assertUnprocessable();
+    }
+
+    public function test_bookmarks_from_combined_screen_redirect_to_the_corresponding_page(): void
+    {
+        [$region] = $this->scenario();
+        $this->get('/estrutura?region='.$region->id.'&form=classroom')->assertRedirect(route('structure.create', ['type' => 'classroom', 'region' => $region->id]));
+        $this->get('/estrutura?region='.$region->id.'&q=Sementes')->assertRedirect(route('structure.classrooms', ['region' => $region->id, 'q' => 'Sementes']));
     }
 
     public function test_demo_entry_denies_remote_requests_disabled_mode_and_production(): void

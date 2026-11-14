@@ -6,9 +6,10 @@ all('a[href^="#"]').forEach((link) => link.addEventListener('click', () => {
 }));
 
 const form = one('[data-structure-form]');
-const edition = one('[data-edition-selector]', form);
-const offering = one('[data-offering-selector]', form);
+const edition = form ? one('[data-edition-selector]', form) : null;
+const offering = form ? one('[data-offering-selector]', form) : null;
 function filterEditionOptions() {
+    if (!form) return;
     const selected = edition?.value ?? offering?.selectedOptions[0]?.dataset.edition ?? '';
     all('[data-edition-options]', form).forEach((select) => {
         [...select.options].forEach((option) => {

@@ -16,3 +16,5 @@ Antes de criar ou alterar uma interface, leia [o guia visual](docs/identidade-vi
 Use ícones nos campos por padrão, sempre que possível e viável. Os componentes `x-ui.input`, `x-ui.select` e `x-ui.textarea` já escolhem um ícone pelo tipo ou nome; use `icon` para ajustá-lo e `:icon="false"` nas exceções. Preserve rótulos visíveis e os controles nativos; não repita essa lógica em cada tela.
 
 Mantenha a escala legível dos tokens: texto e entrada de dados em 16 px, rótulos e botões em 14 px e textos de apoio com pelo menos 12 px. No celular, reorganize o layout sem encolher a fonte. Campos e ações principais têm pelo menos 48 px de altura; o botão compacto preserva texto de 14 px e altura mínima de 44 px.
+
+Separe listagens, formulários de criação e outras tarefas em telas e rotas próprias, conforme orientação do usuário. Não reúna organização, turmas, currículo e cadastro em uma única página. A navegação deve identificar a seção ativa e manter a regional escolhida; ações como “Nova turma” abrem seu formulário, e cancelar retorna à lista com os filtros de origem.

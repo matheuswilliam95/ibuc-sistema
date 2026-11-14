@@ -1,16 +1,30 @@
 # T06 — Organização, currículo e turmas
 
-**Estado:** Em validação técnica e institucional. **Data:** 14/11/2026. Esta entrega implementa a estrutura no Laravel e no PostgreSQL, com tela de cadastros locais. O uso real continua dependendo da autorização T07, do acesso restrito T08 e das decisões da F0 aplicáveis ao fluxo.
+**Estado:** Em validação técnica e institucional. **Data:** 14/11/2026. Esta entrega implementa a estrutura no Laravel e no PostgreSQL, com telas próprias para consulta e cadastro local. O uso real continua dependendo da autorização T07, do acesso restrito T08 e das decisões da F0 aplicáveis ao fluxo.
 
 ## 1. O que pode ser experimentado
 
-Em [Organização e turmas](http://127.0.0.1:8001/estrutura), escolha a regional, busque uma turma pelo nome e filtre por núcleo. O cartão identifica regional, núcleo, nível, edição, oferta, período previsto e capacidade proposta. Turmas chamadas Sementes em Aurora/Jardim e Horizonte/Farol têm IDs diferentes; a consulta de uma regional não traz a turma da outra.
+Em [Organização](http://127.0.0.1:8001/estrutura), escolha a regional e a área que deseja abrir. A pedido do usuário, listagens e criação foram separadas em páginas próprias:
+
+| Tela | Endereço local | Finalidade |
+|---|---|---|
+| Organização | `/estrutura` | Acessos às áreas e quantidades de registros da regional |
+| Núcleos | `/estrutura/nucleos` | Unidades, com links para suas turmas e ofertas |
+| Turmas | `/estrutura/turmas` | Busca por nome e filtro por núcleo, sem formulário de criação |
+| Ofertas | `/estrutura/ofertas` | Módulo, edição, regulamento, período e capacidade propostos |
+| Currículo | `/estrutura/curriculo` | Edições, níveis, faixas, módulos e regulamentos em rascunho |
+| Novo cadastro | `/estrutura/novo-cadastro` | Escolha do tipo, sem exibir formulários ou listas de registros |
+| Formulário escolhido | `/estrutura/novo-cadastro/{type}` | Uma tela exclusiva para cada um dos oito tipos |
+
+Os links mantêm a regional selecionada. O menu destaca a seção atual; “Nova turma” abre somente seu formulário. Cancelar retorna aos filtros de origem; salvar leva à listagem da área correspondente. Links antigos com `?form=...`, busca ou núcleo são encaminhados para a nova página adequada.
+
+Na tela Turmas, o cartão identifica regional, núcleo, nível, edição, oferta, período previsto e capacidade proposta. Sementes em Aurora/Jardim e Horizonte/Farol têm IDs diferentes; a consulta de uma regional não traz a turma da outra.
 
 Há oito formulários: regional, núcleo, edição, nível, módulo, regulamento, oferta e turma. Eles enviam ao Laravel, validam no servidor e persistem no PostgreSQL. Recarregar a página preserva os registros. As prévias `/identidade-visual` e `/jornadas` continuam usando seus próprios exemplos; a T06 não converte ciência, chamada ou entrega da T04 em operações reais.
 
 Os componentes `x-ui.*`, ícones e gradientes suaves foram reutilizados. O seletor compartilhado agora também aceita erro e o associa ao campo. Os campos mantêm 16 px; rótulos/botões, 14 px; apoio, pelo menos 12 px. No celular há acesso direto a “Novo cadastro”, navegação em janela e uma coluna de conteúdo.
 
-Capturas da execução: [computador](estrutura-desktop.jpg) e [celular](estrutura-mobile.jpg). O cadastro “Turma de avaliação visual” é fictício e foi incluído no banco de demonstração para conferir o envio e sua persistência; ele não é adicionado pelo seeder.
+Capturas atuais: [listagem de turmas no computador](telas-separadas-turmas-desktop.jpg) e [formulário no celular](telas-separadas-cadastro-mobile.jpg). As capturas iniciais de [computador](estrutura-desktop.jpg) e [celular](estrutura-mobile.jpg) preservam a proposta anterior à separação. Os cadastros “Turma de avaliação visual” e “Turma de navegação” são fictícios e foram incluídos no banco de demonstração para conferir envio, persistência e retorno à lista; não são adicionados pelo seeder.
 
 ## 2. Modelo implementado
 
@@ -75,7 +89,7 @@ pwsh -NoProfile -File ./sistema/scripts/local-postgres.ps1 -Action Prepare
 pwsh -NoProfile -File ./sistema/scripts/local-postgres.ps1 -Action Serve
 ```
 
-Abra [http://127.0.0.1:8001/estrutura](http://127.0.0.1:8001/estrutura). `Prepare` migra e adiciona o cenário fictício; não apaga a base nem recria contas de usuário. `Serve` fica executando no terminal até Ctrl+C. O seeder também pode ser chamado explicitamente por `php artisan db:seed --class=StructureDemoSeeder` **depois** de configurar uma base local dedicada válida.
+Abra [Organização](http://127.0.0.1:8001/estrutura), [Turmas](http://127.0.0.1:8001/estrutura/turmas) ou [Novo cadastro](http://127.0.0.1:8001/estrutura/novo-cadastro). `Prepare` migra e adiciona o cenário fictício; não apaga a base nem recria contas de usuário. `Serve` fica executando no terminal até Ctrl+C. O seeder também pode ser chamado explicitamente por `php artisan db:seed --class=StructureDemoSeeder` **depois** de configurar uma base local dedicada válida.
 
 | Recurso do auxiliar | Configuração |
 |---|---|
@@ -113,9 +127,11 @@ O teste do banco confere driver, host, ausência de URL substituta e nome real d
 
 As verificações abrangem criação dos oito registros, seeder repetido, homônimos, busca literal, campos extras, referências incompatíveis entre regionais e entre edições da mesma regional, atualização/exclusão de referências, faixas sobrepostas, valores inválidos, ativação recusada, entrada local protegida e reversão/reaplicação da migração em transação isolada. O exercício de backup/restauração T13 ainda não foi feito.
 
-**Resultado desta execução:** 39 testes PHP, com 345 asserções, passaram no ambiente PostgreSQL dedicado. Os 10 testes Node das jornadas, o build Vite, a compilação Blade e a formatação Pint também passaram. A listagem de rotas de produção para `/estrutura` retornou `[]`.
+**Resultado da implementação inicial:** 39 testes PHP, com 345 asserções, passaram no PostgreSQL dedicado. **Após a separação solicitada:** 42 testes PHP, com 395 asserções, passaram, incluindo ausência de formulário nas consultas, criação em tela exclusiva, cancelamento com filtros, regional nos links e redirecionamento dos endereços anteriores. Os 10 testes Node das jornadas, o build Vite, a compilação Blade e a formatação Pint também passaram. As rotas de estrutura continuam ausentes em produção (`[]`); não houve alteração de esquema nesta revisão.
 
 No navegador foram conferidos cadastro persistido, busca da turma depois de navegar entre regionais, erro de faixa com foco e descrição, filtros de opções e menu móvel com Escape/retorno do foco. Os oito formulários foram medidos em 320 px; a tela de turma também em 390, 768 e 1440 px, sem rolagem horizontal. Textos medidos: 16/14/12 px; campos e botões principais: mínimo 48 px. Nenhum aviso/erro de console foi observado na inspeção final. Leitor de tela real, ampliação de texto a 200%, rede limitada, Android físico e aceite da equipe continuam pendentes.
+
+Na revisão das telas separadas, as seis páginas e os oito formulários foram novamente medidos em 320 px, sem rolagem horizontal. Cadastro foi conferido também em 390/768/1440 px e a listagem em computador. Foram verificados cancelamento com a busca preservada, salvamento seguido da listagem, seção ativa, menu móvel e Escape com retorno do foco; a inspeção final de console não mostrou avisos/erros.
 
 ## 7. Continuidade
 

@@ -3,7 +3,7 @@
     <input type="hidden" name="region_id" value="{{ $region?->id }}">
     <fieldset @disabled(!$region && $formType !== 'region')>
         @if($formType !== 'rule')
-        <x-ui.input name="name" label="Nome" :value="old('name')" :error="$errors->first('name')" maxlength="120" required />
+        <x-ui.input name="name" label="Nome" :icon="match($formType) { 'region', 'unit' => 'building', 'classroom', 'level' => 'users', default => 'book' }" :value="old('name')" :error="$errors->first('name')" maxlength="120" required />
         <x-ui.input name="code" label="Código" :value="old('code')" :error="$errors->first('code')" hint="Identificação curta, com letras sem acentos e números. Ex.: SEMENTES-N1." maxlength="40" icon="hash" required />
         @endif
 

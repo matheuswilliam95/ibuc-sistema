@@ -19,6 +19,7 @@
         'search' => '<circle cx="10.7" cy="10.7" r="7"/><path d="m16 16 5 5"/>',
         'chevron-down' => '<path d="m6 9 6 6 6-6"/>',
         'arrow-right' => '<path d="M5 12h14m-6-6 6 6-6 6"/>',
+        'arrow-left' => '<path d="M19 12H5m6-6-6 6 6 6"/>',
         'arrow-up-right' => '<path d="M7 17 17 7M7 7h10v10"/>',
         'check' => '<path d="m5 12 4 4L19 6"/>',
         'check-circle' => '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',

@@ -1,7 +1,7 @@
 @php
     $isJourneyPreview = $isJourneyPreview ?? false;
     $isStructurePreview = $isStructurePreview ?? false;
-    $pageTitle = $isStructurePreview ? 'Organização e turmas' : ($isJourneyPreview ? 'Jornadas da comunidade' : 'Identidade visual');
+    $pageTitle = $isStructurePreview ? ($structurePageTitle ?? 'Organização') : ($isJourneyPreview ? 'Jornadas da comunidade' : 'Identidade visual');
     $navigation = $isStructurePreview ? 'partials.structure-nav' : ($isJourneyPreview ? 'partials.journey-nav' : 'partials.preview-nav');
 @endphp
 <!DOCTYPE html>

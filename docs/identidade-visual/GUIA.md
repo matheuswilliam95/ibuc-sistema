@@ -143,6 +143,7 @@ Use `icon="nome-do-icone"` para escolher outro símbolo da biblioteca e `:icon="
 
 ## Regras para as próximas telas
 
+- Separe cada tarefa em uma tela com rota própria. Listagens e formulários de criação não compartilham a mesma página. Ações como “Nova turma” abrem o formulário correspondente; “Cancelar e voltar” preserva os filtros da lista de origem. Mantenha a regional nos links e destaque a seção ativa no menu, inclusive no celular.
 - Reutilize os componentes e tokens existentes. Quando surgir um novo padrão, acrescente-o à biblioteca e à página de avaliação antes de repeti-lo em vários módulos.
 - Aplique o padrão de ícones dos componentes aos campos sempre que viável. Ajuste o ícone por significado, sem acrescentar enfeites aos controles que já possuem um indicador nativo suficiente.
 - Use um botão principal para a ação mais importante da área. Ações de atenção precisam de texto explícito e, quando necessário, confirmação. Links navegam; botões executam ações.
