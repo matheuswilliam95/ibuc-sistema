@@ -80,7 +80,7 @@ Durante uma entrega, rode primeiro os testes afetados. Antes de liberar a fase, 
 
 | ID | Depende de | O que produzir e como verificar |
 |---|---|---|
-| T01 | — | Prepare a matriz papel × ação × escopo, nomeação e substituição. Mostre à direção um caso permitido, um negado e o caso de uma professora que também é mãe. |
+| T01 | — | Prepare a matriz papel × ação × escopo, nomeação e substituição. Mostre à direção um caso permitido, um negado e o caso de uma professora que também é mãe. Proposta preparada em [docs/governanca/matriz-de-acesso.md](docs/governanca/matriz-de-acesso.md); aguarda validação institucional. |
 | T02 | T01 | Modele edição do currículo, faixas, data de corte, entrada e remanejamento. A apresentação e o caderno divergem nas idades: documente alternativas, peça a escolha aplicável ao piloto e mantenha vigência. Defina os marcos de revisão de faltas. |
 | T03 | T01 | Prepare dicionário de campos, fluxo de guarda/retirada, política de acesso e retenção, termos por finalidade e canal. A família pode recusar imagem sem perder a matrícula. Identifique quem valida cada decisão. |
 | T04 | T01, T03 | Prototipe três jornadas em celular e computador: responsável confirma aviso, professor fecha chamada e secretaria entrega apostila. Valide marca, legibilidade, acessibilidade e entendimento com os perfis correspondentes. |
@@ -214,7 +214,7 @@ As 14 decisões estavam **em aberto** na criação deste roteiro. O Codex prepar
 
 | ID | Até a fase | Quem decide | Pergunta a resolver | Situação / referência |
 |---|---|---|---|---|
-| D01 | F0 | Direção geral e regional | Quais poderes são nacionais, quais são delegáveis e quem nomeia os administradores? | Em aberto |
+| D01 | F0 | Direção geral e regional | Quais poderes são nacionais, quais são delegáveis e quem nomeia os administradores? | Em aberto — proposta de 14/11/2026 e alternativas na [matriz T01](docs/governanca/matriz-de-acesso.md); sem decisão institucional registrada. |
 | D02 | F0 | Direção pedagógica | Qual edição define as idades, o corte e o remanejamento do piloto? | Em aberto |
 | D03 | F0 | Secretaria e privacidade | Como verificar representação, guarda, retirada e eventuais contestações? | Em aberto |
 | D04 | F0 | Direção local e famílias | Quem confirma cada aviso: indivíduo, responsável designado ou um responsável por filho? Como registrar o atendimento assistido? | Em aberto |
@@ -240,7 +240,7 @@ As 14 decisões estavam **em aberto** na criação deste roteiro. O Codex prepar
 
 ## Registro de execução
 
-**Estado atual:** F0 aberta para preparação. A base Laravel e a prévia visual da T04 estão em `sistema/`, com componentes compartilhados e guia em [docs/identidade-visual/GUIA.md](docs/identidade-visual/GUIA.md), conforme pedido específico de avaliação da identidade. A matriz T01, as decisões institucionais e as jornadas completas da T04 continuam pendentes. Antes de retomar, confronte a última entrada com a planilha e com o que realmente existe na pasta.
+**Estado atual:** F0 em preparação. A proposta T01 está em [docs/governanca/matriz-de-acesso.md](docs/governanca/matriz-de-acesso.md), em validação, com D01 em aberto. A base Laravel e a prévia visual da T04 estão em `sistema/`, com componentes compartilhados e guia em [docs/identidade-visual/GUIA.md](docs/identidade-visual/GUIA.md), conforme pedido específico de avaliação da identidade. As decisões institucionais e as jornadas completas da T04 continuam pendentes. O próximo trabalho elegível é preparar T02/T03 com as hipóteses explicitadas, sem habilitar acesso real antes das decisões aplicáveis. A planilha de referência mantém o estado original; use este registro para o andamento e não presuma aceite pela existência dos artefatos.
 
 Acrescente uma linha ao concluir trabalho relevante. Uma nova entrada preserva a anterior quando houver mudança de regra, correção ou reabertura. A data do arquivo não comprova aceite.
 
@@ -252,10 +252,11 @@ Acrescente uma linha ao concluir trabalho relevante. Uma nova entrada preserva a
 | 14/11/2026 | Projeto / compartilhamento | Publicado | Primeira versão pública no GitHub a pedido do usuário: documentação de instalação, capturas, código, plano e backlog. Versionamento na branch main. | Repositório público, branch e commit remoto conferidos; os 88 arquivos publicados não incluem ambiente local, credenciais, dependências, caches ou banco. | Repositório: https://github.com/matheuswilliam95/ibuc-sistema. A publicação do código não equivale à conclusão das fases nem à hospedagem PHP. |
 | 14/11/2026 | F0 / T04 | Em validação | Revisão solicitada de tamanhos: texto e campos em 16 px, rótulos e botões em 14 px, apoio mínimo de 12 px. Altura dos controles ampliada, grades reorganizadas e capturas atualizadas. | Build concluído; conferência visual em computador e celular, com medidas em 320, 390 e 768 px. Nenhum texto visível abaixo de 12 px na inspeção; botão compacto com 44 px, sem reduzir a fonte. | Avaliar a leitura com o usuário e manter a escala nas próximas telas. |
 | 14/11/2026 | F0 / T04 | Em validação | Teste solicitado de gradiente suave no cabeçalho dos formulários. Componente compartilhado x-ui.form-header aplicado ao formulário e às preferências, com verde muito claro, divisória e cantos arredondados. | Build e testes HTTP passaram. Em 320, 390, 768 e 1280 px, o cabeçalho acompanha as bordas do painel e não provoca rolagem horizontal. Capturas atualizadas. | Avaliar com o usuário a intensidade do gradiente. |
+| 14/11/2026 | F0 / T01 | Em validação | Matriz de acesso preparada com RBAC por escopo/vínculo, dados visíveis, nomeação, substituição e revogação. Inclui 24 casos fictícios, divisão proposta entre parâmetros nacionais e autonomia regional e proposta para D01, com dependências D03/D04/D06/D09/D11/D12 explícitas. README e roteiro apontam para o artefato. | Revisão documental das regras e dos casos e conferência de T01/D01 no backlog; estrutura das tabelas e links locais conferida. PDF e backlog preservados. Não houve alteração nem teste de autorização no Laravel: implementação prevista na T07. | Direção e secretaria avaliam matriz e D01; preparar T02/T03 com decisões em aberto identificadas. |
 
 **Para iniciar uma sessão:**
 
-> Leia AGENTS.md e IMPLEMENTACAO.md. Execute a F0 começando pela T01: produza a matriz de acesso com exemplos fictícios e prepare as decisões da direção. Registre o que efetivamente foi produzido e não marque decisões humanas como aceitas.
+> Leia AGENTS.md e IMPLEMENTACAO.md. Confira a proposta T01 e seu registro. Prepare a próxima entrega elegível (T02/T03) com dados fictícios e decisões pendentes explícitas. Se houver retorno da direção, registre a decisão e a versão validada sem presumir aceite dos demais itens.
 
 **Para retomar:**
 

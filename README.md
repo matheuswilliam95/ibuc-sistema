@@ -47,13 +47,14 @@ Consulte [o guia da identidade](docs/identidade-visual/GUIA.md) para instalar as
 
 ## Seguir a implementação
 
-O [roteiro de implementação](IMPLEMENTACAO.md) organiza as 46 entregas. A interface atual é a preparação visual da T04; a aprovação institucional e os fluxos de negócio continuam no roteiro.
+O [roteiro de implementação](IMPLEMENTACAO.md) organiza as 46 entregas. A interface atual é a preparação visual da T04. A [matriz de acesso da T01](docs/governanca/matriz-de-acesso.md) está pronta para avaliação da direção, com papéis, escopos, nomeação e exemplos fictícios; as regras de autorização ainda serão implementadas na T07.
 
 | Material | Conteúdo |
 |---|---|
 | [Aplicação Laravel](sistema) | Código da prévia e componentes compartilhados |
 | [Guia visual](docs/identidade-visual/GUIA.md) | Cores, tipografia e uso dos componentes |
 | [Roteiro](IMPLEMENTACAO.md) | Fases, dependências e critérios de aceite |
+| [Matriz de acesso](docs/governanca/matriz-de-acesso.md) | Proposta T01 de permissões, nomeação e substituição, com decisões pendentes |
 | [Plano do sistema](<output/pdf/Plano de implantação do sistema IBUC.pdf>) | Planejamento funcional e técnico |
 | [Backlog](<outputs/01a1da34-6809-7471-91a3-bee58d1ea8c0/Backlog de implantação IBUC.xlsx>) | Entregas e decisões acompanháveis |
 
