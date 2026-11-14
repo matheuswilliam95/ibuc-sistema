@@ -1,0 +1,32 @@
+# Configuração e credenciais de cada instalação
+**/.env
+**/.env.*
+!**/.env.example
+**/auth.json
+*.pem
+*.key
+
+# Dependências e arquivos gerados
+**/node_modules/
+**/vendor/
+/sistema/public/build/
+/sistema/public/hot
+/sistema/public/storage
+**/.phpunit.cache/
+**/.phpunit.result.cache
+*.log
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sql
+*.dump
+*.inspect.ndjson
+
+# Arquivos da estação de trabalho
+.DS_Store
+Thumbs.db
+Desktop.ini
+/.idea/
+/.vscode/
+/.codex/
+/tmp/

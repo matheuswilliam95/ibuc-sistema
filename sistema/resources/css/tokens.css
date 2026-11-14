@@ -1,0 +1,67 @@
+/* IBUC: origem única dos valores visuais. Os componentes consomem nomes semânticos. */
+@font-face {
+    font-family: Manrope;
+    src: url('../fonts/Manrope-Variable.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: swap;
+}
+
+:root {
+    color-scheme: light;
+    --font-sans: 'Manrope', 'Segoe UI', sans-serif;
+    --color-canvas: #f7f8f5;
+    --color-surface: #ffffff;
+    --color-surface-subtle: #f1f4ef;
+    --color-ink: #20372c;
+    --color-text: #394b41;
+    --color-muted: #647268;
+    --color-border: #dde5db;
+    --color-border-control: #879780;
+    --color-primary: #326748;
+    --color-primary-hover: #254f37;
+    --color-on-primary: #ffffff;
+    --color-primary-soft: #eaf1e8;
+    --color-highlight: #d9ec9a;
+    --color-hero: #e9efdF;
+    --color-danger: #ad453c;
+    --color-danger-soft: #fcf0ed;
+    --color-warning: #835723;
+    --color-warning-soft: #fcf3e2;
+    --color-info: #356682;
+    --color-info-soft: #edf4f9;
+    --color-focus: #37744f;
+    --color-disabled: #eef0ed;
+    --color-disabled-ink: #788276;
+    --color-accent-coral: #c75447;
+    --color-level-1: #ac463c;
+    --color-level-1-soft: #faece8;
+    --color-level-2: #8a6824;
+    --color-level-2-soft: #faf3d9;
+    --color-level-3: #3e7552;
+    --color-level-3-soft: #eaf2e8;
+    --color-level-4: #3b7492;
+    --color-level-4-soft: #eaf3f8;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --radius-sm: 8px;
+    --radius-control: 10px;
+    --radius-card: 16px;
+    --radius-xl: 22px;
+    --radius-pill: 999px;
+    --shadow-card: 0 3px 16px rgb(31 57 39 / 3%);
+    --shadow-float: 0 12px 36px rgb(31 57 39 / 12%);
+    --duration-fast: 160ms;
+    --font-size-base: 14px;
+    --font-size-control: 12px;
+    --font-size-label: 12px;
+    --font-size-caption: 10px;
+    --sidebar-width: 240px;
+}
