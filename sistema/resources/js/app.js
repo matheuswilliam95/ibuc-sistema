@@ -1,35 +1,6 @@
 // Interações da prévia. Nenhuma informação de família é enviada ou persistida.
-const one = (selector, root = document) => root.querySelector(selector);
-const all = (selector, root = document) => [...root.querySelectorAll(selector)];
-let toastTimeout;
-let dialogTrigger;
-
-function notify(message) {
-    const toast = one('#toast');
-    one('span', toast).textContent = message;
-    toast.hidden = false;
-    clearTimeout(toastTimeout);
-    toastTimeout = setTimeout(() => { toast.hidden = true; }, 5500);
-}
-
-all('[data-open-dialog]').forEach((button) => {
-    button.addEventListener('click', () => {
-        dialogTrigger = button;
-        const dialog = document.getElementById(button.dataset.openDialog);
-        dialog.showModal();
-        if (dialog.id === 'search-dialog') one('input', dialog).focus();
-    });
-});
-
-all('dialog').forEach((dialog) => {
-    all('[data-close-dialog]', dialog).forEach((button) => button.addEventListener('click', () => dialog.close()));
-    dialog.addEventListener('click', (event) => {
-        if (event.target !== dialog) return;
-        const box = dialog.getBoundingClientRect();
-        if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
-    });
-    dialog.addEventListener('close', () => dialogTrigger?.focus({ preventScroll: true }));
-});
+import { one, all, notify, initDialogs } from './ui';
+initDialogs();
 all('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', () => {
         link.closest('dialog')?.close();
@@ -83,7 +54,6 @@ one('[data-confirm-cancel]').addEventListener('click', (event) => {
     event.currentTarget.closest('dialog').close();
     notify('Cancelamento simulado. Nenhum encontro real foi alterado.');
 });
-one('[data-dismiss-toast]').addEventListener('click', () => { one('#toast').hidden = true; });
 one('#acknowledgement-button').addEventListener('click', (event) => {
     const button = event.currentTarget;
     if (button.disabled) return;

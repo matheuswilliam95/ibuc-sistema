@@ -53,4 +53,4 @@ Um aceite parcial não fecha os demais itens do mesmo ID. Se apenas as faixas et
 
 ## 5. Evidência e próximos passos
 
-T02/T03 ficam **Em validação** pela preparação e revisão documental. Os casos dos documentos são resultados esperados, não testes já executados no Laravel. A validação humana ainda precisa ser realizada. Na próxima entrega, usar as propostas para demonstrar as três jornadas da T04 com dados fictícios e preparar as escolhas de piloto/infraestrutura da T05; ativação real depende das decisões aplicáveis.
+T02/T03 ficam **Em validação** pela preparação e revisão documental. Os casos dos documentos são resultados esperados, não testes de autorização já executados no Laravel. A validação humana ainda precisa ser realizada. As três jornadas da T04 já possuem [protótipos e evidências próprios](../jornadas/ROTEIRO-DE-AVALIACAO.md), com estado local e dados fictícios. A próxima entrega prepara as escolhas de piloto/infraestrutura da T05; ativação real depende das decisões aplicáveis.

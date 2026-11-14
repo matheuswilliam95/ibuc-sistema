@@ -2,7 +2,7 @@
 
 Sistema em desenvolvimento para aproximar famílias, colaboradores e igrejas participantes do IBUC. O projeto prevê administrações regionais independentes, comunicação com confirmação de ciência, agenda, presença e acompanhamento pedagógico.
 
-A entrega implementada apresenta a identidade visual em Laravel: cores, tipografia, ícones automáticos nos campos e componentes de formulário, botões, avisos e diálogos adaptados ao computador e ao celular. Os exemplos usam dados fictícios; os módulos de negócio estão descritos no roteiro.
+A entrega implementada apresenta a identidade visual em Laravel e três jornadas interativas: família confirma aviso por filho, professor fecha chamada e secretaria registra entrega parcial de material. Os exemplos usam dados fictícios e estado temporário no navegador; os módulos de negócio e suas autorizações no servidor continuam no roteiro.
 
 ![Identidade visual no computador](docs/identidade-visual/previa-inicial.jpg)
 
@@ -39,7 +39,7 @@ Na pasta `sistema/`, com as dependências instaladas:
 php artisan serve --host=127.0.0.1 --port=8000 --no-reload
 ```
 
-Abra [a prévia visual](http://127.0.0.1:8000/identidade-visual). Para alterar CSS ou JavaScript, execute `npm run build` e recarregue a página.
+Abra [a prévia visual](http://127.0.0.1:8000/identidade-visual) ou [as três jornadas](http://127.0.0.1:8000/jornadas). Para alterar CSS ou JavaScript, execute `npm run build` e recarregue a página. Nas jornadas, use as abas Família, Professor e Secretaria; recarregar ou reiniciar descarta as simulações.
 
 Esse endereço é local à máquina que executa o Laravel. O repositório compartilha o código, a documentação e as imagens; ele não hospeda o servidor PHP. As rotas de demonstração estão disponíveis nos ambientes `local` e `testing`.
 
@@ -47,12 +47,13 @@ Consulte [o guia da identidade](docs/identidade-visual/GUIA.md) para instalar as
 
 ## Seguir a implementação
 
-O [roteiro de implementação](IMPLEMENTACAO.md) organiza as 46 entregas. A interface atual é a preparação visual da T04. As propostas T01–T03 estão prontas para avaliação: acesso, regras pedagógicas, dicionário de dados e autorizações. O usuário escolheu as faixas de 2–5, 6–8, 9–11 e 12–17 anos para o piloto; as demais decisões aplicáveis continuam identificadas. Os módulos de negócio e as verificações de autorização no servidor serão implementados na F1 e nas fases seguintes.
+O [roteiro de implementação](IMPLEMENTACAO.md) organiza as 46 entregas. A T04 tem base visual e três jornadas demonstráveis, com [roteiro de avaliação](docs/jornadas/ROTEIRO-DE-AVALIACAO.md); o aceite com participantes está pendente. As propostas T01–T03 estão prontas para avaliação: acesso, regras pedagógicas, dicionário de dados e autorizações. O usuário escolheu as faixas de 2–5, 6–8, 9–11 e 12–17 anos para o piloto; as demais decisões aplicáveis continuam identificadas. Os módulos de negócio e as verificações de autorização no servidor serão implementados na F1 e nas fases seguintes.
 
 | Material | Conteúdo |
 |---|---|
 | [Aplicação Laravel](sistema) | Código da prévia e componentes compartilhados |
 | [Guia visual](docs/identidade-visual/GUIA.md) | Cores, tipografia e uso dos componentes |
+| [Jornadas interativas](docs/jornadas/ROTEIRO-DE-AVALIACAO.md) | T04: passos de avaliação, evidências e capturas de computador/celular |
 | [Roteiro](IMPLEMENTACAO.md) | Fases, dependências e critérios de aceite |
 | [Matriz de acesso](docs/governanca/matriz-de-acesso.md) | Proposta T01 de permissões, nomeação e substituição, com decisões pendentes |
 | [Regras pedagógicas](docs/governanca/regras-pedagogicas.md) | Proposta T02 de currículo, idade, matrícula, remanejamento e faltas |
@@ -68,6 +69,7 @@ Execute dentro de `sistema/`:
 
 ```powershell
 php artisan test
+npm test
 php vendor/bin/pint --test
 npm run build
 ```

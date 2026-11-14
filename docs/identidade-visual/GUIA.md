@@ -15,6 +15,8 @@ Abra [a identidade visual](http://127.0.0.1:8000/identidade-visual). A raiz do a
 
 Os exemplos funcionam no navegador sem cadastro ou banco. Nenhum formulário envia dados ou persiste preferências. O estado da prévia é descartado ao recarregar.
 
+As [jornadas da T04](http://127.0.0.1:8000/jornadas) reutilizam esta base para confirmação por filho, chamada e entrega parcial. O [roteiro de avaliação](../jornadas/ROTEIRO-DE-AVALIACAO.md) reúne os passos e as capturas. Continuam sendo exemplos com estado temporário, sem autorização real de acesso ou aceite institucional presumido.
+
 Em uma instalação nova: `composer install`, copie `.env.example` para `.env` caso ele não exista, execute `php artisan key:generate`, `npm ci` e `npm run build` dentro de `sistema/`. O ambiente desta entrega usou PHP 8.3.30, compatível com o Laravel 13 instalado; o roteiro mantém PHP 8.4 como alvo do ambiente definitivo.
 
 ## Direção visual
@@ -156,10 +158,13 @@ Use `icon="nome-do-icone"` para escolher outro símbolo da biblioteca e `:icon="
 | `resources/css/components.css` | Botões, campos, seletores, estados, diálogos e alertas |
 | `resources/css/showcase.css` | Composição da página de avaliação |
 | `resources/css/responsive.css` | Adaptação do layout e dos exemplos às larguras |
+| `resources/css/journeys.css` | Composição das jornadas da T04, usando os mesmos tokens e controles |
 | `resources/views/components/ui/` | Componentes Blade compartilhados |
 | `resources/views/layouts/preview.blade.php` | Estrutura da demonstração |
 | `resources/views/design-system.blade.php` | Exemplos para avaliação |
 | `resources/js/app.js` | Interações locais da demonstração |
+| `resources/js/ui.js` | Diálogos, retorno de foco e notificações compartilhados |
+| `resources/js/journeys.js` e `journey-state.js` | Composição e regras temporárias das três jornadas |
 
 ## Avaliar a proposta
 
