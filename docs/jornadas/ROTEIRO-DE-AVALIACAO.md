@@ -80,4 +80,4 @@ Para cada sessão, registrar data, perfil avaliado, aparelho/navegador, tarefa c
 - [ ] Marca, compreensão, acessibilidade e ajustes receberam avaliação da direção/equipe.
 - [ ] D04 e demais decisões aplicáveis validadas para o fluxo real.
 
-**Próxima entrega elegível:** T05, proposta de piloto e infraestrutura. A F0 não está aceita por haver código demonstrável. O [registro de execução](../../IMPLEMENTACAO.md) mantém esse estado e as pendências para as fases seguintes.
+**Continuidade:** a [T05 — proposta do piloto](../piloto/PLANO-DO-PILOTO.md) já está preparada para avaliação, considerando 100–300 alunos e o servidor Hetzner existente informado pelo usuário. A próxima entrega técnica independente é a T06, estrutura organizacional e pedagógica com dados fictícios. O aceite destas jornadas com participantes e as decisões institucionais continuam pendentes. O [registro de execução](../../IMPLEMENTACAO.md) mantém esse estado; a F0 não está aceita por haver código demonstrável.

@@ -49,6 +49,8 @@ Consulte [o guia da identidade](docs/identidade-visual/GUIA.md) para instalar as
 
 O [roteiro de implementação](IMPLEMENTACAO.md) organiza as 46 entregas. A T04 tem base visual e três jornadas demonstráveis, com [roteiro de avaliação](docs/jornadas/ROTEIRO-DE-AVALIACAO.md); o aceite com participantes está pendente. As propostas T01–T03 estão prontas para avaliação: acesso, regras pedagógicas, dicionário de dados e autorizações. O usuário escolheu as faixas de 2–5, 6–8, 9–11 e 12–17 anos para o piloto; as demais decisões aplicáveis continuam identificadas. Os módulos de negócio e as verificações de autorização no servidor serão implementados na F1 e nas fases seguintes.
 
+A T05 propõe o piloto para **100–300 alunos**, considerando o **servidor Hetzner já existente**, conforme orientação do usuário. O plano detalha ondas, suporte, ambientes, custos e recuperação; especificações do servidor, custodiantes, unidades reais e orçamento seguem pendentes. Nenhuma implantação foi realizada. O próximo trabalho independente é a T06, com a estrutura de regionais, núcleos e turmas em desenvolvimento/testes.
+
 | Material | Conteúdo |
 |---|---|
 | [Aplicação Laravel](sistema) | Código da prévia e componentes compartilhados |
@@ -60,6 +62,9 @@ O [roteiro de implementação](IMPLEMENTACAO.md) organiza as 46 entregas. A T04 
 | [Dados e privacidade](docs/governanca/dados-e-privacidade.md) | T03: campos, finalidade, hipótese legal em análise, leitores e retenção |
 | [Responsabilidade e autorizações](docs/governanca/responsabilidade-e-autorizacoes.md) | T03: representação, retirada, ciência, imagem e minutas por finalidade |
 | [Fontes e decisões](docs/governanca/fontes-e-decisoes.md) | Evidências dos anexos, referências oficiais e situação das escolhas institucionais |
+| [Plano do piloto](docs/piloto/PLANO-DO-PILOTO.md) | T05: público, núcleos/turmas fictícios, ondas, custódia, atendimento e critérios de expansão |
+| [Arquitetura e custos](docs/infraestrutura/ARQUITETURA-E-CUSTOS.md) | T05: inventário Hetzner pendente, ambientes, capacidade e custos adicionais/total |
+| [Recuperação e operação](docs/infraestrutura/RECUPERACAO-E-OPERACAO.md) | T05: metas propostas, cópias, alertas e roteiro de restauração a executar na T13 |
 | [Plano do sistema](<output/pdf/Plano de implantação do sistema IBUC.pdf>) | Planejamento funcional e técnico |
 | [Backlog](<outputs/01a1da34-6809-7471-91a3-bee58d1ea8c0/Backlog de implantação IBUC.xlsx>) | Entregas e decisões acompanháveis |
 
