@@ -42,6 +42,21 @@ A fonte Manrope é hospedada junto à aplicação. A licença está em `sistema/
 
 Esses valores estão definidos em `sistema/resources/css/tokens.css`. Esse arquivo também contém espaçamento, fonte, raios de borda, sombras e duração das transições. Use variáveis semânticas, por exemplo `--color-primary`, em vez de repetir valores hexadecimais nas telas.
 
+### Tamanhos para leitura confortável
+
+A escala é compartilhada entre computador e celular. Layouts menores reorganizam os elementos sem reduzir as letras para caber.
+
+| Elemento | Padrão |
+|---|---|
+| Texto principal e conteúdo dos campos, inclusive placeholder | 16 px |
+| Rótulos, botões e navegação | 14 px |
+| Orientações, erros, etiquetas e metadados | Pelo menos 12 px |
+| Títulos de painéis e seções | 16 a 24 px, conforme a hierarquia |
+| Altura dos campos e botões principais | Pelo menos 48 px |
+| Botão compacto | Pelo menos 44 px, mantendo texto de 14 px |
+
+Use os tokens `--font-size-base`, `--font-size-label`, `--font-size-control` e `--font-size-caption`. Evite estilos locais de 8 a 11 px. Quando o conteúdo não couber, permita quebra de linha, aumente o espaço ou reorganize a grade. Não reduza os textos de apoio no celular.
+
 ## Usar os componentes
 
 Os componentes Blade ficam em `sistema/resources/views/components/ui/`:
@@ -114,7 +129,7 @@ Use `icon="nome-do-icone"` para escolher outro símbolo da biblioteca e `:icon="
 - Aplique o padrão de ícones dos componentes aos campos sempre que viável. Ajuste o ícone por significado, sem acrescentar enfeites aos controles que já possuem um indicador nativo suficiente.
 - Use um botão principal para a ação mais importante da área. Ações de atenção precisam de texto explícito e, quando necessário, confirmação. Links navegam; botões executam ações.
 - Mantenha rótulos visíveis; placeholder só exemplifica o preenchimento. Mostre o erro em texto próximo ao campo e permita foco perceptível pelo teclado.
-- Use a mesma família tipográfica, espaçamentos da escala e bordas de 10 px nos controles e 16 px nos painéis. No celular, preserve os controles principais com alvos de toque de pelo menos 44 px e textos de entrada de 16 px.
+- Use a mesma família tipográfica, espaçamentos da escala e bordas de 10 px nos controles e 16 px nos painéis. Campos e botões principais têm pelo menos 48 px de altura; o botão compacto mantém 44 px. Os textos de entrada continuam com 16 px no computador e no celular.
 - Respeite preferência por movimento reduzido. Diálogos usam o comportamento nativo de foco, Escape e fundo inativo; notificações de resultado têm anúncio para tecnologia assistiva.
 - Em páginas reais, faça autorização e validação no Laravel/Livewire. O JavaScript desta prévia apenas demonstra os estados visuais. Substitua a tela de demonstração quando a experiência real for liberada.
 
@@ -145,3 +160,5 @@ Foram executados o build do Vite, a compilação de templates Blade, a verifica�
 No navegador, foram conferidos o formulário vazio/preenchido, o erro de formato de e-mail, a troca de tamanho dos botões, a busca, o diálogo de cancelamento, o menu móvel, o switch, a confirmação única do aviso e o detalhe de evento. Não houve erro ou aviso no console nessa inspeção.
 
 As larguras de 320, 390 e 768 px foram verificadas sem rolagem horizontal, além do desktop na largura padrão do navegador. A prévia foi inspecionada visualmente e as rotas foram verificadas como ausentes no ambiente de produção. Isso não constitui certificação de acessibilidade nem teste em aparelhos Android físicos.
+
+Na revisão de legibilidade, a escala mínima foi conferida no DOM e os campos, placeholders, rótulos e mensagens foram medidos nos três tamanhos. O botão compacto mantém 14 px de fonte e 44 px de altura. As grades, os ícones e as capturas foram atualizados para acompanhar os textos maiores.

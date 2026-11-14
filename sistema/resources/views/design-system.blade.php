@@ -74,7 +74,7 @@
             <div class="panel-heading"><div><span class="eyebrow">PREENCHER SEM COMPLICAR</span><h3>Campos que orientam.</h3></div><span class="mini-index">01–06</span></div>
             <form id="preview-form" novalidate>
                 <div class="form-grid">
-                    <x-ui.input name="name" label="Nome completo" placeholder="Como podemos chamar você?" autocomplete="off" hint="Use um nome fictício nesta prévia." required minlength="2" />
+                    <x-ui.input name="name" label="Nome completo" placeholder="Nome de exemplo" autocomplete="off" hint="Use um nome fictício nesta prévia." required minlength="2" />
                     <x-ui.select name="classroom" label="Turma">
                         <option value="">Selecione uma turma</option>
                         <option value="nivel-1">Nível 1 · Pequenos começos</option>

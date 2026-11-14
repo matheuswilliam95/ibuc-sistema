@@ -14,3 +14,5 @@ Exemplo de início: **“Leia o roteiro e execute a F0, começando pela T01.”*
 Antes de criar ou alterar uma interface, leia [o guia visual](docs/identidade-visual/GUIA.md) e confira a página `/identidade-visual` da aplicação em `sistema/`. Reutilize os componentes Blade `x-ui.*` e os valores de `sistema/resources/css/tokens.css`. Ajustes comuns devem ser feitos nessa base, para alcançar todas as telas. A proposta permanece em avaliação; não declare aceite da direção com base na execução dos exemplos.
 
 Use ícones nos campos por padrão, sempre que possível e viável. Os componentes `x-ui.input`, `x-ui.select` e `x-ui.textarea` já escolhem um ícone pelo tipo ou nome; use `icon` para ajustá-lo e `:icon="false"` nas exceções. Preserve rótulos visíveis e os controles nativos; não repita essa lógica em cada tela.
+
+Mantenha a escala legível dos tokens: texto e entrada de dados em 16 px, rótulos e botões em 14 px e textos de apoio com pelo menos 12 px. No celular, reorganize o layout sem encolher a fonte. Campos e ações principais têm pelo menos 48 px de altura; o botão compacto preserva texto de 14 px e altura mínima de 44 px.
