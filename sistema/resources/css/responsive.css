@@ -2,7 +2,7 @@
     .main { padding-top: 40px; }
     .hero { min-height: 275px; }
     .hero__art { width: 400px; height: 295px; right: 65px; }
-    .panel { padding: 24px 26px; }
+    .panel { --panel-padding-block: 24px; --panel-padding-inline: 26px; padding: var(--panel-padding-block) var(--panel-padding-inline); }
     .swatch__color { height: 95px; }
     .swatch strong { font-size: var(--font-size-caption); }
     .swatch small, .swatch code { font-size: var(--font-size-caption); }
@@ -19,7 +19,7 @@
     .hero p { max-width: 270px; }
     .hero p br { display: none; }
     .foundation-grid { grid-template-columns: 2.3fr 1fr; gap: 14px; }
-    .panel { padding-inline: 19px; }
+    .panel { --panel-padding-inline: 19px; padding-inline: var(--panel-padding-inline); }
     .swatches { gap: 8px; }
     .swatch__color { height: 68px; }
     .swatch strong { font-size: var(--font-size-caption); }
@@ -93,7 +93,7 @@
     .section-heading > p { text-align: left; max-width: none; font-size: var(--font-size-caption); margin-top: 7px; }
     .guide-section { margin-bottom: 24px; }
     .foundation-grid { grid-template-columns: 1fr; gap: 14px; }
-    .panel { padding: 20px; }
+    .panel { --panel-padding-block: 20px; --panel-padding-inline: 20px; padding: var(--panel-padding-block) var(--panel-padding-inline); }
     .panel-heading { margin-bottom: 17px; }
     .panel-heading h3 { font-size: var(--font-size-base); }
     .panel-heading > span { font-size: var(--font-size-caption); }

@@ -70,6 +70,7 @@ Os componentes Blade ficam em `sistema/resources/views/components/ui/`:
 | `x-ui.switch` | `name`, `label`, `hint`; aceita `checked` e `disabled` |
 | `x-ui.badge` | `tone`: neutral, success, warning, danger, info, level-1 a level-4; `dot` ou `icon` |
 | `x-ui.alert` | `tone`, `title` e explicação no slot |
+| `x-ui.form-header` | `title`, `eyebrow`, `icon` e conteúdo complementar no slot |
 | `x-ui.icon` | `name` e `size`; sem significado acessível próprio quando acompanha texto |
 
 ```blade
@@ -91,6 +92,19 @@ Os componentes Blade ficam em `sistema/resources/views/components/ui/`:
 ```
 
 O componente de campo associa rótulo, orientação e erro ao controle. Os atributos adicionais passam para o elemento correspondente; por exemplo, `wire:model` pode ser usado na futura integração com Livewire. O componente visual não concede acesso nem implementa validação no servidor.
+
+### Cabeçalho suave para formulários
+
+O componente `x-ui.form-header` está em avaliação no formulário e no bloco de preferências. Ele cria uma faixa verde muito clara que clareia em direção à direita, com uma divisória fina antes dos campos. O gradiente é definido pelo token `--gradient-form-header`, de `#EDF3E8` a `#FCFDFB`.
+
+Use-o como primeiro elemento dentro de um `.panel`. Os recuos acompanham o painel no computador e no celular, e os cantos superiores conservam o mesmo arredondamento.
+
+```blade
+<article class="panel">
+    <x-ui.form-header title="Dados do responsável" eyebrow="CADASTRO" icon="user" />
+    {{-- Campos do formulário --}}
+</article>
+```
 
 ### Ícones nos campos como padrão
 

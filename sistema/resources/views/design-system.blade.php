@@ -71,7 +71,7 @@
 
     <section id="formularios" class="form-state-grid guide-section" aria-label="Campos, estados e opções">
         <article class="panel form-panel">
-            <div class="panel-heading"><div><span class="eyebrow">PREENCHER SEM COMPLICAR</span><h3>Campos que orientam.</h3></div><span class="mini-index">01–06</span></div>
+            <x-ui.form-header title="Campos que orientam." eyebrow="PREENCHER SEM COMPLICAR"><span class="mini-index">01–06</span></x-ui.form-header>
             <form id="preview-form" novalidate>
                 <div class="form-grid">
                     <x-ui.input name="name" label="Nome completo" placeholder="Nome de exemplo" autocomplete="off" hint="Use um nome fictício nesta prévia." required minlength="2" />
@@ -95,7 +95,7 @@
                 <div class="badge-samples"><x-ui.badge tone="success" dot>Confirmado</x-ui.badge><x-ui.badge tone="warning" dot>Aguardando</x-ui.badge><x-ui.badge tone="info" dot>Informativo</x-ui.badge><x-ui.badge tone="danger" dot>Cancelado</x-ui.badge></div>
                 <div class="level-samples"><span class="field__label">Cor e nome, sempre juntos</span><div><x-ui.badge tone="level-1">Nível 1</x-ui.badge><x-ui.badge tone="level-2">Nível 2</x-ui.badge><x-ui.badge tone="level-3">Nível 3</x-ui.badge><x-ui.badge tone="level-4">Nível 4</x-ui.badge></div></div>
             </article>
-            <article class="panel preferences-panel"><div class="panel-heading"><h3>Você no controle</h3><x-ui.icon name="sliders" :size="17" /></div>
+            <article class="panel preferences-panel"><x-ui.form-header title="Você no controle" icon="sliders" />
                 <x-ui.switch name="event-alert" label="Lembretes de encontros" hint="Um aviso antes de começar." checked />
                 <x-ui.switch name="weekly-news" label="Novidades da semana" hint="O que acontece na comunidade." />
                 <label class="checkbox-label"><input type="checkbox" name="demo-check"><span>Quero acompanhar o que há de novo.</span></label>

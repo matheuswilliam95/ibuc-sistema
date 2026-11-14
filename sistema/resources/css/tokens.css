@@ -13,6 +13,9 @@
     --color-canvas: #f7f8f5;
     --color-surface: #ffffff;
     --color-surface-subtle: #f1f4ef;
+    --color-form-header-start: #edf3e8;
+    --color-form-header-end: #fcfdfb;
+    --gradient-form-header: linear-gradient(110deg, var(--color-form-header-start), var(--color-form-header-end));
     --color-ink: #20372c;
     --color-text: #394b41;
     --color-muted: #647268;

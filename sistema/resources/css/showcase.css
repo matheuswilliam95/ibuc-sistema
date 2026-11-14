@@ -62,7 +62,6 @@ h1 { font-size: clamp(26px, 2.4vw, 36px); font-weight: 750; line-height: 1.35; l
 .button-specimens > div > span { font-size: var(--font-size-caption); color: var(--color-muted); padding-left: 2px; }
 .buttons-panel__note { margin-top: 19px; border-top: 1px solid var(--color-border); padding-top: 12px; display: flex; align-items: center; gap: 7px; font-size: var(--font-size-caption); color: var(--color-muted); }
 .form-state-grid { display: grid; grid-template-columns: 1.62fr 1fr; gap: 18px; align-items: stretch; }
-.form-panel .panel-heading { margin-bottom: 21px; align-items: end; }
 .form-panel h3 { font-size: var(--font-size-lg); font-weight: 700; letter-spacing: -.5px; }
 .form-panel .eyebrow { font-size: var(--font-size-caption); margin-bottom: 4px; }
 .mini-index { font-variant-numeric: tabular-nums; font-size: var(--font-size-caption); padding-bottom: 2px; white-space: nowrap; flex-shrink: 0; }
@@ -79,7 +78,6 @@ h1 { font-size: clamp(26px, 2.4vw, 36px); font-weight: 750; line-height: 1.35; l
 .level-samples .field__label { font-size: var(--font-size-caption); color: var(--color-muted); font-weight: 500; }
 .level-samples > div { display: flex; flex-wrap: wrap; gap: 6px; }
 .preferences-panel { flex: 1; }
-.preferences-panel .panel-heading { margin-bottom: 11px; }
 .preferences-panel .panel-heading > .icon { color: var(--color-muted); }
 .experience-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 18px; }
 .notice-card { padding: 22px 23px 0; }
