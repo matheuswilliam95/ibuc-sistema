@@ -6,4 +6,7 @@
     <a href="#formularios" class="nav-link"><x-ui.icon name="book" /><span>Formulários</span></a>
     <a href="#em-uso" class="nav-link"><x-ui.icon name="users" /><span>Experiência da família</span></a>
     <a href="{{ route('journeys') }}" class="nav-link"><x-ui.icon name="arrow-right" /><span>Experimentar jornadas</span></a>
+    @if(config('structure.demo_enabled'))
+    <a href="{{ route('structure.index') }}" class="nav-link"><x-ui.icon name="building" /><span>Organização e turmas</span></a>
+    @endif
 </nav>

@@ -4,7 +4,7 @@
 
 Esta entrega define papéis, ações, alcance e regras de nomeação para orientar a implementação. É uma proposta revisável, não uma autorização institucional já concedida. A decisão **D01 permanece em aberto**. O [roteiro](../../IMPLEMENTACAO.md) e seu registro de execução acompanham a entrega. Todos os exemplos abaixo são fictícios.
 
-A matriz não habilita permissões na aplicação. O banco organizacional será construído na T06, as verificações de acesso na T07 e os convites na T08. Saúde, guarda, imagem e delegação a adolescente dependem também das decisões indicadas ao final.
+A matriz não habilita permissões na aplicação. A [T06](../organizacao/T06-ESTRUTURA.md) já implementa o banco organizacional e cadastros locais fictícios; verificações de acesso por participante entram na T07 e convites na T08. Saúde, guarda, imagem e delegação a adolescente dependem também das decisões indicadas ao final.
 
 ## 1. Como uma permissão será avaliada
 
@@ -236,4 +236,4 @@ As demais decisões D02, D05, D07, D08 e D10 continuam nas entregas corresponden
 - [ ] D01 decidida com referência de data/ata, sem expor dados pessoais no repositório público.
 - [ ] Verificações no Laravel implementadas e executadas na T07 e nos módulos correspondentes.
 
-**Continuidade:** propostas [T02 — regras pedagógicas](regras-pedagogicas.md) e [T03 — dados](dados-e-privacidade.md) e [autorizações](responsabilidade-e-autorizacoes.md) preparadas em 14/11/2026. Consulte [fontes e decisões](fontes-e-decisoes.md) para as pendências e as escolhas parciais de D02/D08 recebidas do usuário. Os [protótipos da T04](../jornadas/ROTEIRO-DE-AVALIACAO.md) e a [proposta do piloto T05](../piloto/PLANO-DO-PILOTO.md) estão disponíveis para avaliação. O próximo trabalho técnico independente é a T06 com dados fictícios; a autorização desta matriz será implementada na T07. A validação da direção deve citar a versão e os itens aceitos/alterados. A planilha de referência permanece preservada; o estado corrente da execução é registrado em [IMPLEMENTACAO.md](../../IMPLEMENTACAO.md).
+**Continuidade:** propostas [T02 — regras pedagógicas](regras-pedagogicas.md) e [T03 — dados](dados-e-privacidade.md) e [autorizações](responsabilidade-e-autorizacoes.md) preparadas em 14/11/2026. Consulte [fontes e decisões](fontes-e-decisoes.md) para as pendências e as escolhas parciais de D02/D08 recebidas do usuário. Os [protótipos da T04](../jornadas/ROTEIRO-DE-AVALIACAO.md) e a [proposta do piloto T05](../piloto/PLANO-DO-PILOTO.md) estão disponíveis para avaliação. A [T06](../organizacao/T06-ESTRUTURA.md) já implementa a estrutura local com dados fictícios; a autorização desta matriz é o próximo trabalho, T07. A validação da direção deve citar a versão e os itens aceitos/alterados. A planilha de referência permanece preservada; o estado corrente da execução é registrado em [IMPLEMENTACAO.md](../../IMPLEMENTACAO.md).

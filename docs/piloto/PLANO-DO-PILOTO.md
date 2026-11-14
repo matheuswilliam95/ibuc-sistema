@@ -114,4 +114,4 @@ Nenhum vazamento ou acesso indevido nos ensaios é condição de liberação, n�
 - [ ] D11: inventário do servidor, orçamento, retenção e metas aprovados; restauração testada na T13.
 - [ ] Decisões aplicáveis T01–T03 e avaliação T04 registradas para habilitar dados reais.
 
-**Próximo trabalho técnico elegível:** T06, estrutura de regionais, núcleos, edições, níveis, ofertas e turmas, com dados fictícios e configurações pedagógicas em rascunho onde faltar decisão. Isso pode avançar sem acesso ao servidor Hetzner ou contratação; a implantação real exige inventário e liberação próprios. A F0 permanece em validação institucional, sem declaração de conclusão ou aceite presumido.
+**Continuidade técnica:** a [T06 — organização e currículo](../organizacao/T06-ESTRUTURA.md) já implementa a estrutura em PostgreSQL local com dados fictícios e configurações pedagógicas em rascunho. O próximo ID é T07, atribuições, contexto e Policies. Isso pode avançar sem acesso ao servidor Hetzner ou contratação; a implantação real exige inventário e liberação próprios. A F0 permanece em validação institucional, sem declaração de conclusão ou aceite presumido.

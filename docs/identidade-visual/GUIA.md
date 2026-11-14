@@ -67,7 +67,7 @@ Os componentes Blade ficam em `sistema/resources/views/components/ui/`:
 |---|---|
 | `x-ui.button` | `variant`: primary, secondary, ghost, danger; `size`: sm, md, lg; `icon`; `href` ou `type` |
 | `x-ui.input` | `name`, `label`, `type`, `hint`, `error`, ícone automático ou `icon` explícito e `optional` |
-| `x-ui.select` | `name`, `label`, `hint`, ícone automático ou `icon` explícito e opções no slot |
+| `x-ui.select` | `name`, `label`, `hint`, `error`, ícone automático ou `icon` explícito e opções no slot |
 | `x-ui.textarea` | `name`, `label`, `hint`, `error`, `rows`, ícone automático ou `icon` explícito e `optional` |
 | `x-ui.switch` | `name`, `label`, `hint`; aceita `checked` e `disabled` |
 | `x-ui.badge` | `tone`: neutral, success, warning, danger, info, level-1 a level-4; `dot` ou `icon` |
@@ -94,6 +94,8 @@ Os componentes Blade ficam em `sistema/resources/views/components/ui/`:
 ```
 
 O componente de campo associa rótulo, orientação e erro ao controle. Os atributos adicionais passam para o elemento correspondente; por exemplo, `wire:model` pode ser usado na futura integração com Livewire. O componente visual não concede acesso nem implementa validação no servidor.
+
+Na [T06 — Organização e turmas](../organizacao/T06-ESTRUTURA.md), os mesmos componentes já recebem erros reais do servidor. O seletor aceita `error`, aplica `aria-invalid` e associa a mensagem ao campo. A tela reutiliza este layout e os cabeçalhos suaves, com ícones e controles de 48 px, sem alterar as simulações da T04.
 
 ### Cabeçalho suave para formulários
 

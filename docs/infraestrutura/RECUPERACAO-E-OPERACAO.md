@@ -102,4 +102,4 @@ Na F1, documentar cada migração relevante com pré-condições, cópia, compat
 | Reconciliado, restrito e ainda pendente | A registrar por fluxo |
 | Decisão de liberação e próximos ajustes | Não emitida |
 
-Guardar evidências técnicas privadas no local institucional apropriado e publicar somente um resumo sem dados pessoais/segredos. Enquanto o exercício não tiver sido feito com sucesso, a recuperação continua proposta. O próximo trabalho independente é a T06 em ambiente de desenvolvimento/testes, sem necessidade de acessar o Hetzner nesta etapa.
+Guardar evidências técnicas privadas no local institucional apropriado e publicar somente um resumo sem dados pessoais/segredos. Enquanto o exercício não tiver sido feito com sucesso, a recuperação continua proposta. A [T06](../organizacao/T06-ESTRUTURA.md) já usa PostgreSQL local e bases separadas, mas não executou este exercício. O próximo trabalho independente é T07, autorização por escopo/vigência, sem necessidade de acessar o Hetzner nesta etapa.

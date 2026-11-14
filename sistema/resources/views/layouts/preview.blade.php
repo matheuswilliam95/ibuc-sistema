@@ -1,15 +1,20 @@
-@php($isJourneyPreview = $isJourneyPreview ?? false)
+@php
+    $isJourneyPreview = $isJourneyPreview ?? false;
+    $isStructurePreview = $isStructurePreview ?? false;
+    $pageTitle = $isStructurePreview ? 'Organização e turmas' : ($isJourneyPreview ? 'Jornadas da comunidade' : 'Identidade visual');
+    $navigation = $isStructurePreview ? 'partials.structure-nav' : ($isJourneyPreview ? 'partials.journey-nav' : 'partials.preview-nav');
+@endphp
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#326748">
-    <meta name="description" content="{{ $isJourneyPreview ? 'Experimente as jornadas de família, professor e secretaria do IBUC com dados fictícios.' : 'Conheça a base visual do IBUC: cores, tipografia e componentes pensados para aproximar famílias e igrejas.' }}">
-    <title>{{ $isJourneyPreview ? 'Jornadas da comunidade' : 'Identidade visual' }} · IBUC</title>
+    <meta name="description" content="{{ $isStructurePreview ? 'Organização e currículo do piloto IBUC, com dados fictícios em ambiente local.' : ($isJourneyPreview ? 'Experimente as jornadas de família, professor e secretaria do IBUC com dados fictícios.' : 'Conheça a base visual do IBUC: cores, tipografia e componentes pensados para aproximar famílias e igrejas.') }}">
+    <title>{{ $pageTitle }} · IBUC</title>
     <link rel="icon" type="image/png" href="{{ asset('brand/ibuc-original.png') }}">
     <link rel="preload" href="{{ Vite::asset('resources/fonts/Manrope-Variable.ttf') }}" as="font" type="font/ttf" crossorigin>
-    @vite(['resources/css/app.css', $isJourneyPreview ? 'resources/js/journeys.js' : 'resources/js/app.js'])
+    @vite(['resources/css/app.css', $isStructurePreview ? 'resources/js/structure.js' : ($isJourneyPreview ? 'resources/js/journeys.js' : 'resources/js/app.js')])
 </head>
 <body @class(['journeys-page' => $isJourneyPreview])>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -18,28 +23,28 @@
             <img src="{{ asset('brand/ibuc-original.png') }}" width="101" height="60" alt="Instituto Bíblico Único Caminho">
             <span>Conectando nossa comunidade</span>
         </a>
-        <div class="region-label"><span class="region-dot"></span>{{ $isJourneyPreview ? 'REGIONAL AURORA' : 'VALE DO AÇO' }}<span class="region-label__tag">IBUC</span></div>
-        @include($isJourneyPreview ? 'partials.journey-nav' : 'partials.preview-nav')
+        <div class="region-label"><span class="region-dot"></span>{{ $isStructurePreview ? ($region?->name ?? 'ORGANIZAÇÃO') : ($isJourneyPreview ? 'REGIONAL AURORA' : 'VALE DO AÇO') }}<span class="region-label__tag">IBUC</span></div>
+        @include($navigation)
         <div class="sidebar__bottom">
             <div class="responsive-note">
                 <span class="responsive-note__icons"><x-ui.icon name="monitor" :size="19" /><x-ui.icon name="phone" :size="16" /></span>
                 <strong>Perto, em qualquer tela.</strong>
                 <p>Uma experiência para o celular e o computador.</p>
             </div>
-            <div class="preview-profile"><span class="avatar">I</span><div><strong data-preview-person>{{ $isJourneyPreview ? 'Bruno Exemplo' : 'Equipe IBUC' }}</strong><small data-preview-role>{{ $isJourneyPreview ? 'Responsável · demonstração' : 'Avaliação de interface' }}</small></div><x-ui.icon name="sparkles" :size="17" /></div>
+            <div class="preview-profile"><span class="avatar">I</span><div><strong data-preview-person>{{ $isJourneyPreview ? 'Bruno Exemplo' : 'Equipe IBUC' }}</strong><small data-preview-role>{{ $isStructurePreview ? 'Organização · demonstração' : ($isJourneyPreview ? 'Responsável · demonstração' : 'Avaliação de interface') }}</small></div><x-ui.icon name="sparkles" :size="17" /></div>
         </div>
     </aside>
 
     <div class="workspace">
         <header class="topbar">
             <button class="icon-button mobile-menu-button" type="button" data-open-dialog="navigation-dialog" aria-label="Abrir navegação"><x-ui.icon name="menu" /></button>
-            <a href="{{ $isJourneyPreview ? '#familia' : '#apresentacao' }}" class="mobile-brand" aria-label="IBUC, apresentação"><img src="{{ asset('brand/ibuc-original.png') }}" alt="IBUC" width="43" height="26"></a>
-            <div class="breadcrumbs"><span>Experiência IBUC</span><span class="breadcrumbs__divider">/</span><strong>{{ $isJourneyPreview ? 'Nossa comunidade' : 'Identidade visual' }}</strong></div>
+            <a href="{{ $isStructurePreview ? '#conteudo' : ($isJourneyPreview ? '#familia' : '#apresentacao') }}" class="mobile-brand" aria-label="IBUC, apresentação"><img src="{{ asset('brand/ibuc-original.png') }}" alt="IBUC" width="43" height="26"></a>
+            <div class="breadcrumbs"><span>Experiência IBUC</span><span class="breadcrumbs__divider">/</span><strong>{{ $pageTitle }}</strong></div>
             <div class="topbar__actions">
                 <span class="demo-label"><span></span>Prévia interativa</span>
                 @if($isJourneyPreview)
                 <button class="icon-button" type="button" data-open-dialog="reset-dialog" aria-label="Reiniciar os exemplos"><x-ui.icon name="reset" /></button>
-                @else
+                @elseif(!$isStructurePreview)
                 <button class="icon-button" type="button" data-open-dialog="search-dialog" aria-label="Buscar componentes"><x-ui.icon name="search" /></button>
                 <button class="icon-button notification-button" type="button" data-open-dialog="notifications-dialog" aria-label="Abrir exemplo de notificação"><x-ui.icon name="bell" /><span class="notification-dot"></span></button>
                 @endif
@@ -52,10 +57,10 @@
     </div>
 
     <dialog id="navigation-dialog" class="navigation-dialog" aria-labelledby="navigation-title">
-        <div class="dialog-heading"><h2 id="navigation-title">{{ $isJourneyPreview ? 'Nossa comunidade' : 'Explorar a identidade' }}</h2><button type="button" class="icon-button" data-close-dialog aria-label="Fechar navegação"><x-ui.icon name="close" /></button></div>
-        @include($isJourneyPreview ? 'partials.journey-nav' : 'partials.preview-nav')
+        <div class="dialog-heading"><h2 id="navigation-title">{{ $pageTitle }}</h2><button type="button" class="icon-button" data-close-dialog aria-label="Fechar navegação"><x-ui.icon name="close" /></button></div>
+        @include($navigation)
     </dialog>
-    @unless($isJourneyPreview)
+    @unless($isJourneyPreview || $isStructurePreview)
     <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title">
         <div class="dialog-heading"><h2 id="search-title">O que você quer explorar?</h2><button type="button" class="icon-button" data-close-dialog aria-label="Fechar busca"><x-ui.icon name="close" /></button></div>
         <label class="sr-only" for="component-search">Buscar componente</label>
