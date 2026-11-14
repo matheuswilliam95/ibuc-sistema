@@ -47,7 +47,7 @@ Consulte [o guia da identidade](docs/identidade-visual/GUIA.md) para instalar as
 
 ## Seguir a implementação
 
-O [roteiro de implementação](IMPLEMENTACAO.md) organiza as 46 entregas. A interface atual é a preparação visual da T04. A [matriz de acesso da T01](docs/governanca/matriz-de-acesso.md) está pronta para avaliação da direção, com papéis, escopos, nomeação e exemplos fictícios; as regras de autorização ainda serão implementadas na T07.
+O [roteiro de implementação](IMPLEMENTACAO.md) organiza as 46 entregas. A interface atual é a preparação visual da T04. As propostas T01–T03 estão prontas para avaliação: acesso, regras pedagógicas, dicionário de dados e autorizações. O usuário escolheu as faixas de 2–5, 6–8, 9–11 e 12–17 anos para o piloto; as demais decisões aplicáveis continuam identificadas. Os módulos de negócio e as verificações de autorização no servidor serão implementados na F1 e nas fases seguintes.
 
 | Material | Conteúdo |
 |---|---|
@@ -55,6 +55,10 @@ O [roteiro de implementação](IMPLEMENTACAO.md) organiza as 46 entregas. A inte
 | [Guia visual](docs/identidade-visual/GUIA.md) | Cores, tipografia e uso dos componentes |
 | [Roteiro](IMPLEMENTACAO.md) | Fases, dependências e critérios de aceite |
 | [Matriz de acesso](docs/governanca/matriz-de-acesso.md) | Proposta T01 de permissões, nomeação e substituição, com decisões pendentes |
+| [Regras pedagógicas](docs/governanca/regras-pedagogicas.md) | Proposta T02 de currículo, idade, matrícula, remanejamento e faltas |
+| [Dados e privacidade](docs/governanca/dados-e-privacidade.md) | T03: campos, finalidade, hipótese legal em análise, leitores e retenção |
+| [Responsabilidade e autorizações](docs/governanca/responsabilidade-e-autorizacoes.md) | T03: representação, retirada, ciência, imagem e minutas por finalidade |
+| [Fontes e decisões](docs/governanca/fontes-e-decisoes.md) | Evidências dos anexos, referências oficiais e situação das escolhas institucionais |
 | [Plano do sistema](<output/pdf/Plano de implantação do sistema IBUC.pdf>) | Planejamento funcional e técnico |
 | [Backlog](<outputs/01a1da34-6809-7471-91a3-bee58d1ea8c0/Backlog de implantação IBUC.xlsx>) | Entregas e decisões acompanháveis |
 
